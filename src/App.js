@@ -24,11 +24,17 @@ function App() {
   // },[])
       
     async function getCountry(){
-      let request = await fetch(`https://restcountries.com/v3.1/name/${input}`);
-      let response = await request.json();
-  
-      setFlag(response[0])
+        let request = await fetch(`https://restcountries.com/v3.1/name/${input}`);
+        let response = await request.json();
+    
+        console.log(request.ok);
 
+        if(request.ok === true){
+          setFlag(response[0])
+
+        } else{
+          alert("Plese enter a correct country")
+        }
     }
 
 
